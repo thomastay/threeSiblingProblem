@@ -1,8 +1,7 @@
 #ifndef BRUTEFORCER
 #define BRUTEFORCER
-#define MAX_SIZE 100
+#define MAX_SIZE 15626
 
-int* factorize (int num);
 void bruteForce(int end);
 
 #endif
