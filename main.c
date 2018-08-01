@@ -1,5 +1,5 @@
 #include "bruteForcer.h"
 int main(){
-    bruteForce(25);
+    bruteForce(50);
     return 0;
 }
