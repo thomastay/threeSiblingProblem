@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
 #include <map>
 #include <unordered_map> 
@@ -29,7 +28,7 @@ oddOneOut twoEqual(vector<int> v){
    This program determines if one of two vectors has the twoEqual thingy and
    returns the odd One out
 */
-oddOneOut vecTwoEqual(const vector<vector<int>>& triplets){
+oddOneOut vecTwoEqual(const TripletVec& triplets){
     if(triplets.size()!= 2){
         cerr << "Oh no! Something went wrong";
         assert(false);
@@ -58,7 +57,7 @@ oddOneOut vecTwoEqual(const vector<vector<int>>& triplets){
 PHash hashProducts(int end){
     int i, j, k;
     /*Hashed by product, then sum, then a vector of triplet vectors */
-    unordered_map<int, vector<vector<vector<int>>>> productHash;
+    PHash productHash;
 
     for(i=1; i < end; ++i){
         for(j=i; j < end; ++j){
@@ -93,22 +92,75 @@ ResultHash findResult(const PHash& productHash){
     return result;
 }
 
-void printResult(const ResultHash& result){
-    for (auto vv : result){ //Vector of vectors
-        cout << setw(5) << vv.first << ": ";
-        for(auto i : vv.second.front())
-            cout << setw(2) << i << " ";
-        cout << "& ";
-        for(auto i : vv.second[1])
-            cout << setw(2) << i << " ";
-        cout << endl;
+bool feasibleTripletVec(const TripletVec& tripVec, oddOneOut ansType){
+    assert(ansType != oddOneOut::NONE);
+    if(tripVec.size() != 2)
+        return false;
+    oddOneOut firstState = twoEqual(tripVec.front());
+    oddOneOut secondState = twoEqual(tripVec.back());
+    if(firstState == secondState)
+        return false;
+    /* If the first is a NONE, then the second cannot be the same as the
+     * ansType, because it means that there is no way to distinguish the two
+     * The second one below is by symmetry
+     */
+    if(firstState == oddOneOut::NONE && secondState == ansType)
+        return false;
+    if(secondState == oddOneOut::NONE && firstState == ansType)
+        return false;
+    return true;
+}
+
+/* Finds the pair of triplets that correspond to the problem
+ * If it can't return as its first pair of triplets: -1,-1,-1
+ * Complexity is O(n^2)
+ */
+TripletVec findPairofTriplets(int num, oddOneOut ansType){
+    /* First we start by factorizing the number
+     * Then, we systematically generate triplets that correspond to some sum
+     * Hash them in some vector by sum
+     * Then, loop through the vector and see which numbers have a size = 2
+     * Then, if it has a size greater than 2, check if it is feasible
+     * We will define feasibility in the feasible() function
+     * Then we save that to triplet Vec, and turn found to true
+     * Then we continue looking. If found is true twice, then we return an error
+     * and stop looking.
+     */
+    bool found = false;
+    /* Hash of the triplets by sum
+     * Consider changing to Vector
+     */
+    unordered_map<int, TripletVec> sumHash; 
+    /* The answer vector */
+    TripletVec resultVec = {{-1,-1,-1}};
+
+    /* Factorize the number */
+    for(int i = 1; i < num; ++i){
+        for(int j = i; j < num; ++j){
+            int k = (num / i) / j;
+            if(k >= j && i*j*k == num){
+                /* Then we have found a factor */
+                int sum = i + j + k;
+                sumHash[sum].push_back({i,j,k});
+            }
+        }
     }
+    for(auto sumItr : sumHash){
+        if(sumItr.second.size() == 2 && feasibleTripletVec(sumItr.second, ansType)){
+            if(!found){
+                found = true;
+                resultVec = sumItr.second;
+            } else{
+                cerr << "Found more than one answer!" << endl;
+                /* error condition */
+                return {{-2,-1,-1}};
+            }
+        }
+    }
+    return resultVec;
 }
 
-/* Main program */
 
-void solve(int end){
-    PHash productHash = hashProducts(end);
-    ResultHash result = findResult(productHash);
-    printResult(result);
-}
+
+
+
