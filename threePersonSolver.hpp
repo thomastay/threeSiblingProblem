@@ -1,9 +1,9 @@
-#ifndef BRUTEFORCER
-#define BRUTEFORCER
+#ifndef THREEPERSONSOLVER
+#define THREEPERSONSOLVER
 #define MAX_SIZE 125000
 
-enum oddoneOut {NONE, OLDEST, MIDDLE, YOUNGEST};
+enum class oddOneOut {NONE, OLDEST, MIDDLE, YOUNGEST};
 
-void bruteForce(int end);
+void solve(int end);
 
 #endif

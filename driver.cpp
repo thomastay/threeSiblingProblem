@@ -1,5 +1,8 @@
-#include "bruteForcer.h"
+#include "threePersonSolver.hpp"
+#include <iostream>
+
 int main(){
-    bruteForce(50);
+    std::ios::sync_with_stdio(false);
+    solve(50);
     return 0;
 }
