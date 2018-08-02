@@ -1,5 +1,6 @@
 *.swp
 *.o
 tags
+compile_commands.json
 build/
 bin/
