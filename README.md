@@ -2,21 +2,14 @@
 ## A solver in C++
 
 The three siblings problem (a common math riddle), goes like this:
-> I asked my neighbor how old his three daughters were
-
-> He replied: "The product of their ages is 36 (or **N**, in general)"
-
-> I thought for a while, but couldn't figure out their ages
-
-> He gave another hint: "The sum of their ages is the number on my door"
-
-> I thought for a long time, but still couldn't figure it out
-
-> In the end, he gave one last hint: *My eldest daughter loves fishing*
-
-> And in that moment, I got it
-
-> How old are his daughters?
+> I asked my neighbor how old his three daughters were  
+> He replied: "The product of their ages is 36 (or **N**, in general)"  
+> I thought for a while, but couldn't figure out their ages  
+> He gave another hint: "The sum of their ages is the number on my door"  
+> I thought for a long time, but still couldn't figure it out  
+> In the end, he gave one last hint: *My eldest daughter loves fishing*  
+> And in that moment, I got it  
+> How old are his daughters?  
 
 The following is a C++ solver that is able to find the solution to the problem, as well as being able to generate numbers **N** for which you can play this puzzle.
 
