@@ -1,4 +1,5 @@
 #include "threeSiblingSolver.hpp"
+#include "getopt.h"
 #include <iostream>
 #include <iomanip>
 
@@ -54,7 +55,41 @@ void solve(int problem, oddOneOut ansType){
     parseTripletVec(tripPair, problem, ansType);
 }
 
-int main(){
+int main(int argc, char** argv){
+    int option_index = 0, option = 0;
+
+	// Don't display getopt error messages about options
+	opterr = false;
+
+	// use getopt to find command line options
+	struct option longOpts[] = {
+	{ "solve", required_argument, nullptr, 's' },
+	{ "generate", no_argument, nullptr, 'g' },
+	{ "help", no_argument, nullptr, 'g' }
+	};
+
+	while ((option = getopt_long(argc, argv, "s:gh", longOpts, &option_index)) != -1) {
+		switch (option) {
+
+		case 's': {
+            
+		}
+
+		case 'g': {
+            
+		}
+
+		case 'h':
+			std::cout << "To use this program, please enter arguments of the following form:\n"
+				<< "-s [NUMBER] [ANSWER TYPE]"
+				<< std::endl
+				<< "-g"
+				<< std::endl;
+			// Terminate the program, but it's not an error.
+			exit(0);
+		} // switch
+	} // while
+
     std::ios::sync_with_stdio(false);
     solve(900, oddOneOut::OLDEST);
 
