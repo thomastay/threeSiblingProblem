@@ -1,4 +1,4 @@
-#include "threePersonSolver.hpp"
+#include "threeSiblingSolver.hpp"
 #include <iostream>
 
 int main(){

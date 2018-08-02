@@ -11,7 +11,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -Wpedantic -O3")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wpedantic -O3")
 
 # add the executable
-add_executable(${PROJECT_NAME} driver.cpp threePersonSolver.cpp)
+add_executable(${PROJECT_NAME} driver.cpp threeSiblingSolver.cpp)
 
 add_custom_target(
     run 

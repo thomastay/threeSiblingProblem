@@ -4,7 +4,7 @@
 #include <map>
 #include <unordered_map> 
 #include <cassert>
-#include "threePersonSolver.hpp"
+#include "threeSiblingSolver.hpp"
 
 using namespace std;
 
