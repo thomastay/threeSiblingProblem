@@ -19,14 +19,26 @@ The following is a C++ solver that is able to find the solution to the problem, 
 [still in progress] **Solving mode** - The program takes in a number and a string denoting which daughter is specified in the riddle (you have to tell it whether it is the eldest or youngest daugher)
 
 ## Building
+
+### Dependencies
+You will need a compiler with C++11 support (clang-3.3+, g++-4.8+), CMake 3.0+, and git.
+
+To check, run the following commands on your terminal:
+```
+g++ --version
+cmake --version
+git --version
+```
+
+### Steps
 Run the following commands on your machine:
 ```
-    git clone https://github.com/thomastay/threeSiblingProblem.git ~/threeSiblingProblem
-    cd ~/threeSiblingProblem
-    mkdir build bin
-    cd build
-    cmake ..
-    make
+git clone https://github.com/thomastay/threeSiblingProblem.git ~/threeSiblingProblem
+cd ~/threeSiblingProblem
+mkdir build bin
+cd build
+cmake ..
+make
 ```
 
 ## Usage
