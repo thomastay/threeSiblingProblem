@@ -44,9 +44,9 @@ make
 ## Usage
 To use, go to the source directory and go into the folder named *bin*. The executable is called *threeSiblingSolver*
 
-For help and usage instructions, type
+For full help and usage instructions, type
 ```
-    ./threeSiblingSolver --help
+./threeSiblingSolver --help
 ```
 
 ### Solving mode
@@ -56,9 +56,18 @@ For help and usage instructions, type
 
 For example, if the product of the neighbor's daughter's ages is 36 and he specified his eldest daughter, you would type in
 
-
 ```
 ./threeSiblingSolver --solve 36 --type eldest
+```
+
+This would give the output
+```
+For the problem of siblings whose ages multiply to 36,
+and the neighbor specified his eldest daughter
+Solving ...
+
+Solved!
+The ages of the siblings are: 2, 2, 9
 ```
 
 ### Generation mode
