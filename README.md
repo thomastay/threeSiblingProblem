@@ -70,6 +70,18 @@ Solved!
 The ages of the siblings are: 2, 2, 9
 ```
 
+Here's a bigger problem:
+```
+./threeSiblingSolver --solve 9072 --type youngest
+
+For the problem of siblings whose ages multiply to 9072,
+and the neighbor specified his youngest daughter
+Solving ...
+
+Solved!
+The ages of the siblings are: 16, 21, 27
+```
+
 ### Generation mode
 ```
 ./threeSiblingSolver --generate [RANGE]

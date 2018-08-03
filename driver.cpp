@@ -90,7 +90,7 @@ int main(int argc, char** argv){
 	{ "version", no_argument, nullptr, 'V' },
 	};
 
-	while ((option = getopt_long(argc, argv, "s:g:t:hv", longOpts, &option_index)) != -1) {
+	while ((option = getopt_long(argc, argv, "s:g:t:hV", longOpts, &option_index)) != -1) {
 		switch (option) {
 
 		case 's':
@@ -132,13 +132,30 @@ int main(int argc, char** argv){
                 << "\t1. Solve the three Sibling Problem" << endl
                 << "\t2. Generate solutions for the three Sibling Problem."<< endl
                 << endl
-				<< "Usage:\tthreeSiblingSolver -s [NUMBER] -t [ANSWER-TYPE]" << endl
-				<< "or:\tthreeSiblingSolver -g [NUMBER]"
+				<< "Usage:\tthreeSiblingSolver --solve [-s] [NUMBER] "
+                << "--type [-t] [ANSWER-TYPE]" << endl
+				<< "or:\tthreeSiblingSolver --generate [-g] [RANGE]" << endl
+                << "This generates all possible numbers where the daughters"
+                << " ages are in the range [1,RANGE)" << endl
+                << endl
+                << "Examples:" << endl
+                << "Solver: " << endl
+                << "For example, if the product of the neighbor's"
+                << " daughter's ages is 36" << endl
+                << "and he specified his eldest daughter, you would type in" << endl
+                << "\tthreeSiblingSolver --solve 36 --type eldest" << endl
+                << "Here's a bigger problem (try me!)" << endl
+                << "\tthreeSiblingSolver --solve 9072 --type youngest" << endl
+                << endl << "Generator:" << endl
+                << "For example, if you want to see all cases where the daughters are preteens"
+                << " (12 and below)" << endl
+                << "\tthreeSiblingSolver --generate 13"
+                << ""
 				<< std::endl;
 			// Terminate the program, but it's not an error.
 			exit(0);
 
-		case 'v':
+		case 'V':
 			cout << "threeSiblingSolver 0.1.0"<< endl
                 << "Copyright (C) 2018 Thomas Tay." << endl
                 << "This software is licenced under the MIT licence." << endl
@@ -153,15 +170,29 @@ int main(int argc, char** argv){
         return 0;
     }
     /* If nothing, display this help message */
-    cout << "This program can do one of two things" << endl
-        << "\t1. Solve the three Sibling Problem" << endl
-        << "\t2. Generate solutions for the three Sibling Problem."<< endl
-        << endl
-        << "Usage:\tthreeSiblingSolver -s [NUMBER] -t [ANSWER-TYPE]" << endl
-        << "or:\tthreeSiblingSolver -g [NUMBER]"
-        << std::endl;
-
-
-
+			cout << "This program can do one of two things" << endl
+                << "\t1. Solve the three Sibling Problem" << endl
+                << "\t2. Generate solutions for the three Sibling Problem."<< endl
+                << endl
+				<< "Usage:\tthreeSiblingSolver --solve [-s] [NUMBER] "
+                << "--type [-t] [ANSWER-TYPE]" << endl
+				<< "or:\tthreeSiblingSolver --generate [-g] [RANGE]" << endl
+                << "This generates all possible numbers where the daughters"
+                << " ages are in the range [1,RANGE)" << endl
+                << endl
+                << "Examples:" << endl
+                << "Solver: " << endl
+                << "For example, if the product of the neighbor's"
+                << " daughter's ages is 36" << endl
+                << "and he specified his eldest daughter, you would type in" << endl
+                << "\tthreeSiblingSolver --solve 36 --type eldest" << endl
+                << "Here's a bigger problem (try me!)" << endl
+                << "\tthreeSiblingSolver --solve 9072 --type youngest" << endl
+                << endl << "Generator:" << endl
+                << "For example, if you want to see all cases where the daughters are preteens"
+                << " (12 and below)" << endl
+                << "\tthreeSiblingSolver --generate 13"
+                << ""
+				<< std::endl;
     return 0;
 }
