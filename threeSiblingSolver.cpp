@@ -12,7 +12,7 @@ using namespace std;
  */
 oddOneOut twoEqual(vector<int> v){
     if(v.size()!= 3){
-        cerr << "Oh no! Something went wrong";
+        cerr << "ERROR: Triplet size is not valid" << endl;;
         assert(false);
     }
     int a,b,c;
@@ -30,7 +30,7 @@ oddOneOut twoEqual(vector<int> v){
 */
 oddOneOut vecTwoEqual(const TripletVec& triplets){
     if(triplets.size()!= 2){
-        cerr << "Oh no! Something went wrong";
+        cerr << "ERROR: More than two triples declared" << endl;
         assert(false);
     }
     oddOneOut firstStatus = twoEqual(triplets.front());
@@ -40,7 +40,7 @@ oddOneOut vecTwoEqual(const TripletVec& triplets){
         return oddOneOut::NONE;
     }
     if(firstStatus == secondStatus){
-        cerr << "Oh no! Statuses are the same! This shouldn't be possible";
+        cerr << "Oh no! Statuses are the same! This shouldn't be possible" << endl;
         assert(false);
         return oddOneOut::NONE;
     }
@@ -151,7 +151,7 @@ TripletVec findPairofTriplets(int num, oddOneOut ansType){
                 found = true;
                 resultVec = sumItr.second;
             } else{
-                cerr << "Found more than one answer!" << endl;
+                cerr << "ERROR: Found more than one answer!" << endl;
                 /* error condition */
                 return {{-2,-1,-1}};
             }
