@@ -33,8 +33,8 @@ git --version
 ### Steps
 Run the following commands on your machine:
 ```
-git clone https://github.com/thomastay/threeSiblingProblem.git ~/threeSiblingProblem
-cd ~/threeSiblingProblem
+git clone https://github.com/thomastay/threeSiblingSolver.git ~/threeSiblingSolver
+cd ~/threeSiblingSolver
 mkdir build bin
 cd build
 cmake ..
@@ -42,9 +42,46 @@ make
 ```
 
 ## Usage
-To use, go to the source directory and go into the folder named *bin*. The executable is called *threeSiblingProblem*
+To use, go to the source directory and go into the folder named *bin*. The executable is called *threeSiblingSolver*
+
+For help and usage instructions, type
 ```
-    ./threeSiblingProblem
+    ./threeSiblingSolver --help
 ```
-This runs it in generation mode
-[progress] working on solver mode now
+
+### Solving mode
+```
+./threeSiblingSolver --solve [NUMBER] --type [ANSWER-TYPE]
+```
+
+For example, if the product of the neighbor's daughter's ages is 36 and he specified his eldest daughter, you would type in
+
+
+```
+./threeSiblingSolver --solve 36 --type eldest
+```
+
+### Generation mode
+```
+./threeSiblingSolver --generate [RANGE]
+```
+
+This generates all possible numbers where the daughters ages are in the range [1,RANGE)
+
+For example, if you want to see all cases where the daughters are preteens (12 and below)
+
+
+```
+./threeSiblingSolver --generate 13
+```
+
+would output
+
+```
+   36:  1  6  6 &  2  2  9
+   40:  1  5  8 &  2  2 10
+   72:  2  6  6 &  3  3  8
+   90:  2  5  9 &  3  3 10
+  144:  3  6  8 &  4  4  9
+  360:  5  8  9 &  6  6 10
+```
