@@ -2,6 +2,7 @@
 ## A solver in C++
 
 The three siblings problem (a common math riddle), goes like this:
+
 > I asked my neighbor how old his three daughters were  
 > He replied: "The product of their ages is 36 (or **N**, in general)"  
 > I thought for a while, but couldn't figure out their ages  
