@@ -61,8 +61,8 @@ void solve(int problem, oddOneOut ansType){
         ansTypeStr = "eldest";
     else if(ansType == oddOneOut::YOUNGEST)
         ansTypeStr = "youngest";
-    cout << "For the problem of siblings with ages " << problem << ", " << endl;
-    cout << "and the neighbor specified his " << ansTypeStr << " daughter" << endl;
+    cout << "For the problem of siblings whose ages multiply to " << problem << ", " << endl;
+    cout << "and the neighbor specified his " << ansTypeStr << " daughter," << endl;
     cout << "Solving ..." << endl << endl;
 
     /* Actual solving here */
