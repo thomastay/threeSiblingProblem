@@ -33,8 +33,8 @@ git --version
 ### Steps
 Run the following commands on your machine:
 ```
-git clone https://github.com/thomastay/threeSiblingSolver.git ~/threeSiblingSolver
-cd ~/threeSiblingSolver
+git clone https://github.com/thomastay/threeSiblingSolver.git
+cd threeSiblingSolver
 mkdir build bin
 cd build
 cmake ..
