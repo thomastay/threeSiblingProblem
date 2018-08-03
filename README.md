@@ -16,7 +16,7 @@ The following is a C++ solver that is able to find the solution to the problem, 
 ## Features
 **Generating mode** - The program generates all possible N in a range that suit this problem.
 
-[still in progress] **Solving mode** - The program takes in a number and a string denoting which daughter is specified in the riddle (you have to tell it whether it is the eldest or youngest daugher)
+**Solving mode** - The program takes in a number and a string denoting which daughter is specified in the riddle (you have to tell it whether it is the eldest or youngest daugher)
 
 ## Building
 
